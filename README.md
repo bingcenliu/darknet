@@ -1,3 +1,9 @@
+To run inference on a duckietown image:
+
+./darknet detector test cfg/duckie-multi.data cfg/yolov3-tiny-duckie-multi.cfg cfg/yolov3-tiny-duckie-multi.weights duckiestuff/testset/100_000070.jpg
+
+-----------
+
 ![Darknet Logo](http://pjreddie.com/media/files/darknet-black-small.png)
 
 # Darknet #

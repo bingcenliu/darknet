@@ -19,9 +19,10 @@ data_folder=r'/home/jon/ObjectDetection/Label_Data/data_folder/'
 #folder where labels will be saved
 label_folder=r'/home/jon/ObjectDetection/Label_Data/label_folder/'
 #folder where annoted images will be saved
-annotated_folder=r'/home/jon/ObjectDetection/Label_Data/annotated_img/'
+#annotated_folder=r'/home/jon/ObjectDetection/Label_Data/annotated_img/'
 #folder where original imaged is moved to once annotated
 final_folder=r'/home/jon/ObjectDetection/Label_Data/labeled_data/'
+label_folder=final_folder
 
 files=os.listdir(data_folder)
 random.shuffle(files)
@@ -65,5 +66,5 @@ for file in files:
             boolDone=True
     fid.close()
     shutil.move(data_folder+file, final_folder+filename+'jpg')
-    cv.imwrite(annotated_folder+filename+'jpg',img)
+    #cv.imwrite(annotated_folder+filename+'jpg',img)
 

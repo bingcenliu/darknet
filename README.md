@@ -22,7 +22,7 @@ stop_sign
 road_sign
 ```
 
-These are the 4 classes of objects we are training on. The labels must use these same names. An example label file is `duckiestuff/trainset/100_000151.txt` with a corresponding image file `duckiestuff/trainset/100_000151.jpg`. Note that they have to be in the same directory. The label for this image is specified as follows:
+These are the 4 classes of objects we are training on. An example label file is `duckiestuff/trainset/100_000151.txt` with a corresponding image file `duckiestuff/trainset/100_000151.jpg`. Note that they have to be in the same directory. The label for this image is specified as follows:
 
 ```2 0.16 0.23 0.07 0.19
 2 0.4 0.22 0.02 0.1
@@ -31,7 +31,7 @@ These are the 4 classes of objects we are training on. The labels must use these
 ```
 
 Each line of this file refers to an object. There are 5 elements in the YOLO label, each separated by a space:
-1. Class ID (in the same order as in the file containing the class names)
+1. Class ID (in the same order as in the file containing the class names). Class 0 is `bot` in our case, class 1 is `duckie` and so on
 2. x coordinate for the center of the object in the image
 3. y coordinate for the center of the object in the image
 4. object width (normalized by the width of the image)

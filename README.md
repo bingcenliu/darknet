@@ -1,7 +1,7 @@
 # Training YOLO on Duckietown images #
 We forked [Darknet](http://pjreddie.com/darknet) to train YOLO on images from Duckietown. The folder `duckiestuff` contains training images and labels in `trainset`. There also is a validation set in `validset` and a test set `testset`.
 
-All the required configuration files have been added to `cfg`. We prefer to train with tiny YOLO as its accuracy is good enough and it has better chances of running on the duckiebot as its is smaller.
+All the required configuration files have been added to `cfg`. We prefer to train with tiny YOLO as its accuracy is good enough and it has better chances of running on the duckiebot as it is smaller.
 
 The first important configuration file is `cfg/duckie-multi.data`. Its contents are:
 

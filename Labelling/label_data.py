@@ -11,6 +11,7 @@ import numpy as np
 import shutil
 import random
 import easygui
+import argparse
 from pathlib import Path
 import sys
 
@@ -36,16 +37,18 @@ def main():
 
 
     
-    files=os.listdir(data_folder)
-    random.shuffle(files)
+    images = list(data_folder.glob('*.jpg'))
+    images.extend(list(data_folder.glob('*.jpeg')))
+    random.shuffle(images)
     
-    for file in files:
-        print('Processing image : '+file)
-        if file[-3:] == 'jpg':
-            filename=file[:-3]
+    for imageFile in images:
+        print('Processing image {}'.format(imageFile.name))
+        
+        if imageFile.name[-3:] == 'jpg':
+            filename=imageFile.name[:-3]
         else:
-            filename=file[:-4]
-        img=cv.imread(data_folder+file)
+            filename=imageFile.name[:-4]
+        img=cv.imread(str(imageFile))
         boolDone=False
         fid=open(final_folder+filename+'txt','w')
         while not boolDone:
@@ -76,7 +79,7 @@ def main():
             else:
                 boolDone=True
         fid.close()
-        shutil.move(data_folder+file, final_folder+filename+'jpg')
+        shutil.move(imageFile, final_folder+filename+'jpg')
         #cv.imwrite(annotated_folder+filename+'jpg',img)
 
 if __name__ == "__main__":

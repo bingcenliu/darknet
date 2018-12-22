@@ -56,6 +56,8 @@ def main():
         img = checkAnnotation(img,float(tokens[0]),float(tokens[1]),float(tokens[2]),float(tokens[3]),float(tokens[4]))
     
     cv.imshow('image', img)
+    cv.waitKey(0)
+    cv.destroyAllWindows()
           
   
 if __name__ == "__main__":

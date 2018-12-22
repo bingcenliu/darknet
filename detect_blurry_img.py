@@ -39,7 +39,7 @@ def main():
         print("{} is not a directory".format(good_folder))
         sys.exit(1)
 
-    # Recognize jpg or jpeg imagess
+    # Recognize jpg or jpeg images
     images = list(data_folder.glob('*.jpg'))
     images.extend(list(data_folder.glob('*.jpeg')))
     

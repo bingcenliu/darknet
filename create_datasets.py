@@ -26,10 +26,10 @@ def get_indices(num_examples, train_pct):
 def copy_dataset(list_indices, image_files, labels_dir, destination):
 
     for idx in list_indices:
-        shutil.copy(image_files[idx], destination.joinpath(image_files[idx].name))
+        shutil.copy(str(image_files[idx]), str(destination.joinpath(image_files[idx].name)))
         label_filename = image_files[idx].stem + ".txt"
         label_filepath = labels_dir.joinpath(label_filename)
-        shutil.copy(label_filepath, destination.joinpath(label_filename))
+        shutil.copy(str(label_filepath), str(destination.joinpath(label_filename)))
 
     print("Copied {} images and labels to {}".format(len(list_indices), destination))
 
@@ -43,21 +43,22 @@ def main():
     args = parser.parse_args()
 
     datadir = Path(args.datadir)
-    outputdir = Path(args.outputdir)
+    outputdir =Path(args.outputdir)
     train_pct = args.train_pct
 
-    if not datadir.is_dir():
-        print("{} is not a directory".format(datadir))
-        sys.exit(1)
+    #if not datadir.is_dir():
+       # print("{} is not a directory".format(datadir))
+       #sys.exit(1)
 
-    if not outputdir.is_dir():
-        print("{} is not a directory".format(outputdir))
-        sys.exit(1)
+    #if not outputdir.is_dir():
+        #print("{} is not a directory".format(outputdir))
+       # sys.exit(1)
 
     # Make sure there are no directories trainset, validset and testset in output directory
     trainset_dir = outputdir.joinpath("trainset")
     validset_dir = outputdir.joinpath("validset")
     testset_dir = outputdir.joinpath("testset")
+    print(trainset_dir)
 
     if trainset_dir.is_dir() or validset_dir.is_dir() or testset_dir.is_dir():
         print("There already exists at least one of trainset, validset, testset directories in {}".format(outputdir))
@@ -89,9 +90,9 @@ def main():
     train_indices, valid_indices, test_indices = get_indices(num_image_files, train_pct)
 
     # Make the directories
-    os.mkdir(trainset_dir)
-    os.mkdir(validset_dir)
-    os.mkdir(testset_dir)
+    os.mkdir(str(trainset_dir))
+    os.mkdir(str(validset_dir))
+    os.mkdir(str(testset_dir))
 
     # Do the copying
     copy_dataset(train_indices, image_files, labels_dir, trainset_dir)

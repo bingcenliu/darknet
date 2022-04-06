@@ -1,1 +1,1 @@
-/home/bingcenliu/git/darknet/data_folder/validset/frame0195.jpg
+data_folder/validset/frame0195.jpg

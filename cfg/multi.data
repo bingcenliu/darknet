@@ -1,0 +1,5 @@
+classes= 2
+train  = data_folder/train.txt
+valid  = data_folder/valid.txt
+names = data/multi.names
+backup = br_backup
